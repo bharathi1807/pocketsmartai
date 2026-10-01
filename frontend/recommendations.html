@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations — PocketSmart AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/planner.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark">
+        PocketSmart <span class="brand-accent">AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="home-planner.html">Home Interior</a>
+        <a href="party-planner.html">Party Planner</a>
+        <a href="jewelry-planner.html">Jewelry Styling</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="header-actions" id="headerAuthZone">
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Empty State if navigated here directly without query -->
+      <div id="recEmptyState" class="empty-state" style="display: none; padding: 80px 20px;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--text-primary);">No active recommendation found</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Please create a new budget plan to view recommendations.</p>
+        <div style="display: flex; gap: 12px; justify-content: center;">
+          <a href="home-planner.html" class="btn btn-primary">Home Planner</a>
+          <a href="party-planner.html" class="btn btn-secondary">Party Planner</a>
+          <a href="jewelry-planner.html" class="btn btn-secondary">Jewelry Planner</a>
+        </div>
+      </div>
+
+      <!-- Main Recommendations Presentation -->
+      <div id="recommendationsContainer">
+        <div class="results-header">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+              <h1 style="font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em;">Your Personalized Budget Plan</h1>
+              <span id="fallbackBadge" style="display: none; font-size: 0.75rem; background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">
+                Algorithmic Fallback
+              </span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+              Balanced allocations based on current market pricing benchmarks.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button onclick="window.print()" class="btn btn-outline btn-sm">🖨️ Print / Save PDF</button>
+            <a href="dashboard.html" class="btn btn-secondary btn-sm">Return to Dashboard</a>
+          </div>
+        </div>
+
+        <!-- Budget Allocation Summary Card -->
+        <div class="budget-bar-card">
+          <div class="budget-metric-row" id="budgetSummaryRow">
+            <!-- Populated via recommendations.js -->
+          </div>
+          <div class="progress-track">
+            <div id="budgetProgressFill" class="progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Recommended Items List -->
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">Curated Item Breakdown</h2>
+        <div id="recommendationsList" class="rec-cards-list">
+          <!-- Populated via recommendations.js -->
+        </div>
+
+        <!-- Practical Tips & Guidance -->
+        <div class="tips-card" style="margin-bottom: 24px;">
+          <h3 class="tips-title">💡 Budget Optimization Tips</h3>
+          <ul id="tipsList" class="tips-list">
+            <!-- Populated via recommendations.js -->
+          </ul>
+        </div>
+
+        <!-- Disclaimer Banner -->
+        <div class="alert alert-info">
+          <span style="font-size: 1.1rem;">ℹ️</span>
+          <span id="disclaimerNotice" style="font-size: 0.825rem; line-height: 1.5;">
+            AI-generated recommendation based on current market price patterns. External platform names are suggested search targets; verify real-time inventory and delivery schedules.
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>PocketSmart AI</strong> — Recommendations</div>
+      <div><span>Powered by Google Gemini 3.8 Flash</span></div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/recommendations.js"></script>
+</body>
+</html>

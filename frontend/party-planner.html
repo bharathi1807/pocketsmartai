@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Party & Event Planner — PocketSmart AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/planner.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark">
+        PocketSmart <span class="brand-accent">AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="home-planner.html">Home Interior</a>
+        <a href="party-planner.html" class="active">Party Planner</a>
+        <a href="jewelry-planner.html">Jewelry Styling</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="header-actions" id="headerAuthZone">
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="planner-layout">
+        <!-- Form Side -->
+        <div class="planner-form-card">
+          <div class="planner-intro">
+            <h1 class="planner-title">Party & Event Budget Planner</h1>
+            <p class="planner-subtitle">Calculate per-guest catering, venue rental, thematic decor, and entertainment.</p>
+          </div>
+
+          <div id="plannerErrorAlert" class="alert alert-error" style="display: none;"></div>
+
+          <form id="partyPlannerForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="totalBudget" class="form-label">Total Celebration Budget ($)</label>
+                <input type="number" id="totalBudget" class="form-input tabular-nums" placeholder="e.g. 35000" min="100" step="50" required>
+              </div>
+
+              <div class="form-group">
+                <label for="guestCount" class="form-label">Number of Guests</label>
+                <input type="number" id="guestCount" class="form-input tabular-nums" placeholder="e.g. 25" min="1" max="1000" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="eventType" class="form-label">Event Type</label>
+              <select id="eventType" class="form-select" required>
+                <option value="Birthday Party" selected>Birthday Party</option>
+                <option value="Wedding Sangeet / Reception">Wedding Sangeet / Reception</option>
+                <option value="Corporate Mixer / Team Dinner">Corporate Mixer / Team Dinner</option>
+                <option value="Housewarming Celebration">Housewarming Celebration</option>
+                <option value="Anniversary Dinner">Anniversary Dinner</option>
+                <option value="Cocktail & Karaoke Night">Cocktail & Karaoke Night</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="foodRequirements" class="form-label">Food & Beverage Requirements</label>
+                <input type="text" id="foodRequirements" class="form-input" placeholder="e.g. Multi-cuisine buffet, mocktail bar, 3 appetizers, cake">
+              </div>
+
+              <div class="form-group">
+                <label for="venueRequirements" class="form-label">Venue Requirements</label>
+                <input type="text" id="venueRequirements" class="form-input" placeholder="e.g. Rooftop terrace, banquet hall, private villa lounge">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="decorRequirements" class="form-label">Decoration Requirements</label>
+                <input type="text" id="decorRequirements" class="form-input" placeholder="e.g. Balloon arch, neon sign, fairy lights, floral centerpieces">
+              </div>
+
+              <div class="form-group">
+                <label for="entertainmentRequirements" class="form-label">Entertainment Requirements</label>
+                <input type="text" id="entertainmentRequirements" class="form-input" placeholder="e.g. Live acoustic guitarist, DJ sound setup, karaoke gear">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="accommodationRequirements" class="form-label">Accommodation Requirements (Optional)</label>
+              <input type="text" id="accommodationRequirements" class="form-input" placeholder="e.g. 2 hotel rooms for outstation family via OYO or local boutique hotel">
+            </div>
+
+            <button type="submit" id="submitPlannerBtn" class="btn btn-primary btn-lg" style="width: 100%;">
+              Generate Party Budget Plan
+            </button>
+          </form>
+        </div>
+
+        <!-- Sidebar Guidance -->
+        <div>
+          <div class="tips-card" style="margin-bottom: 24px;">
+            <h3 class="tips-title">🎉 Event Ratio Benchmarks</h3>
+            <ul class="tips-list">
+              <li><strong>Catering (~45%):</strong> Quality food & beverages constitute the primary guest experience.</li>
+              <li><strong>Venue (~30%):</strong> Covers climate control, dedicated space, seating, and restrooms.</li>
+              <li><strong>Decor & Lighting (~15%):</strong> Transforms ambiance and ensures photogenic memories.</li>
+              <li><strong>Sound & Music (~10%):</strong> Crisp announcements, party playlists, and speaker clarity.</li>
+            </ul>
+          </div>
+
+          <div class="tips-card">
+            <h3 class="tips-title">💡 Practical Planning Checklist</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Verify whether service staff, cleanup, and ice supply are bundled in your catering quote to prevent surprise day-of expenses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>PocketSmart AI</strong> — Party Planner</div>
+      <div><span>Powered by Google Gemini 3.8 Flash</span></div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/party-planner.js"></script>
+</body>
+</html>

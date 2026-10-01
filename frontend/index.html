@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PocketSmart AI — Smart Budget & Recommendation Assistant</title>
+  <meta name="description" content="AI-powered budget planning and personalized recommendations for home interiors, party events, and jewelry styling.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Top Bar Contract -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark">
+        PocketSmart <span class="brand-accent">AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="home-planner.html">Home Interior</a>
+        <a href="party-planner.html">Party Planner</a>
+        <a href="jewelry-planner.html">Jewelry Styling</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+      <div class="header-actions" id="headerAuthZone">
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="main-content">
+    <section class="container" style="padding-top: 40px; padding-bottom: 60px;">
+      <div style="max-width: 780px; margin: 0 auto; text-align: center;">
+        <div style="font-size: 0.85rem; color: var(--accent-primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
+          Next-Generation Budget Planning
+        </div>
+        <h1 style="font-size: 2.75rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 20px; text-wrap: balance;">
+          Intelligent budget optimization tailored to your lifestyle and taste.
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 32px;">
+          PocketSmart AI analyzes your spending constraints across home furnishings, celebrations, and jewelry styling to produce realistic, categorized purchase plans powered by Google Gemini.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="register.html" class="btn btn-primary btn-lg">Launch Assistant</a>
+          <a href="#features" class="btn btn-secondary btn-lg">Explore Planners</a>
+        </div>
+        <div style="margin-top: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; justify-content: center; gap: 16px;">
+          <span>Zero unverified markups</span>
+          <span aria-hidden="true">·</span>
+          <span>Google Gemini 3.8 Flash</span>
+          <span aria-hidden="true">·</span>
+          <span>Fail-safe local fallback</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planners Overview Section -->
+    <section id="features" class="container" style="padding-top: 40px; padding-bottom: 60px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h2 style="font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px;">
+          Three Specialized Planning Engines
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Select a category to plan allocations, compare marketplace options, and stay strictly within budget.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <!-- Card 1 -->
+        <div class="planner-card">
+          <div class="planner-card-header">
+            <span class="planner-card-icon">🏠</span>
+            <h3 class="planner-card-title">Home Interior Planner</h3>
+            <p class="planner-card-desc">
+              Furnish living spaces, bedrooms, and modular apartments. Balances furniture, ambient lighting, BLDC ventilation, and decor across retailers like IKEA and Amazon.
+            </p>
+            <div class="planner-card-tags">
+              <span>Living Room</span> · <span>Scandinavian & Modern</span> · <span>Layered Lighting</span>
+            </div>
+          </div>
+          <a href="home-planner.html" class="btn btn-outline">Launch Interior Planner →</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="planner-card">
+          <div class="planner-card-header">
+            <span class="planner-card-icon">🎉</span>
+            <h3 class="planner-card-title">Party & Event Budget</h3>
+            <p class="planner-card-desc">
+              Organize birthdays, corporate gatherings, and weddings. Calculates exact per-guest ratios across food catering, venue hire, thematic decor, and sound systems.
+            </p>
+            <div class="planner-card-tags">
+              <span>Per-Head Catering</span> · <span>Venue Booking</span> · <span>DJ & Audio</span>
+            </div>
+          </div>
+          <a href="party-planner.html" class="btn btn-outline">Launch Party Planner →</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="planner-card">
+          <div class="planner-card-header">
+            <span class="planner-card-icon">💎</span>
+            <h3 class="planner-card-title">Jewelry Styling Planner</h3>
+            <p class="planner-card-desc">
+              Discover necklaces, earrings, and bracelets matching your outfit. Features multimodal photo upload to harmonize metal finishes with dress necklines and colors.
+            </p>
+            <div class="planner-card-tags">
+              <span>Outfit Multimodal AI</span> · <span>Precious Metals</span> · <span>Care Storage</span>
+            </div>
+          </div>
+          <a href="jewelry-planner.html" class="btn btn-outline">Launch Jewelry Planner →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>PocketSmart AI</strong> — Your Smart Budget & Recommendation Assistant
+      </div>
+      <div>
+        <span>Powered by Google Gemini 3.8 Flash</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

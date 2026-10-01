@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jewelry Styling Planner — PocketSmart AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/planner.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark">
+        PocketSmart <span class="brand-accent">AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="home-planner.html">Home Interior</a>
+        <a href="party-planner.html">Party Planner</a>
+        <a href="jewelry-planner.html" class="active">Jewelry Styling</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="header-actions" id="headerAuthZone">
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="planner-layout">
+        <!-- Form Side -->
+        <div class="planner-form-card">
+          <div class="planner-intro">
+            <h1 class="planner-title">Jewelry Styling Planner</h1>
+            <p class="planner-subtitle">Curate matching jewelry pieces coordinated with your outfit, occasion, and budget.</p>
+          </div>
+
+          <div id="plannerErrorAlert" class="alert alert-error" style="display: none;"></div>
+
+          <form id="jewelryPlannerForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="budget" class="form-label">Jewelry Budget ($)</label>
+                <input type="number" id="budget" class="form-input tabular-nums" placeholder="e.g. 15000" min="50" step="50" required>
+              </div>
+
+              <div class="form-group">
+                <label for="occasion" class="form-label">Occasion</label>
+                <select id="occasion" class="form-select" required>
+                  <option value="Wedding / Reception" selected>Wedding / Reception</option>
+                  <option value="Cocktail Evening / Gala">Cocktail Evening / Gala</option>
+                  <option value="Festive Celebration">Festive Celebration</option>
+                  <option value="Engagement Ceremony">Engagement Ceremony</option>
+                  <option value="Daily Office Wear">Daily Office Wear</option>
+                  <option value="Casual Evening Out">Casual Evening Out</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="jewelryType" class="form-label">Jewelry Category</label>
+                <select id="jewelryType" class="form-select" required>
+                  <option value="Necklace & Earring Set" selected>Necklace & Earring Set</option>
+                  <option value="Choker & Studs">Choker & Studs</option>
+                  <option value="Statement Earrings (Jhumkas/Danglers)">Statement Earrings</option>
+                  <option value="Bangles & Bracelets Stack">Bangles & Bracelets Stack</option>
+                  <option value="Solitaire Rings & Pendants">Solitaire Rings & Pendants</option>
+                  <option value="Complete Bridal Suite">Complete Bridal Suite</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="preferredStyle" class="form-label">Preferred Style</label>
+                <select id="preferredStyle" class="form-select" required>
+                  <option value="Contemporary Diamond" selected>Contemporary Diamond</option>
+                  <option value="Traditional Temple Gold">Traditional Temple Gold</option>
+                  <option value="Kundan & Polki Royal">Kundan & Polki Royal</option>
+                  <option value="Modern Minimalist">Modern Minimalist</option>
+                  <option value="Boho Chic & Oxidised">Boho Chic & Oxidised</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="materialPreference" class="form-label">Material & Finish</label>
+                <select id="materialPreference" class="form-select" required>
+                  <option value="18K Rose Gold" selected>18K Rose Gold</option>
+                  <option value="925 Sterling Silver">925 Sterling Silver</option>
+                  <option value="22K Yellow Gold">22K Yellow Gold</option>
+                  <option value="Gold Plated Brass / Kundan">Gold Plated Brass / Kundan</option>
+                  <option value="Oxidised Silver">Oxidised Silver</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="preferredColor" class="form-label">Stone / Accent Color (Optional)</label>
+                <input type="text" id="preferredColor" class="form-input" placeholder="e.g. Emerald green, ruby, pearl, sapphire">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="outfitDescription" class="form-label">Outfit Description (Fabric, Neckline & Color)</label>
+              <input type="text" id="outfitDescription" class="form-input" placeholder="e.g. Deep V-neck emerald satin dress, or maroon embroidered silk saree">
+            </div>
+
+            <!-- Optional Image Upload -->
+            <div class="form-group">
+              <label class="form-label">Upload Outfit Photo (Optional)</label>
+              <input type="file" id="outfitImageInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+              
+              <div id="fileDropzone" class="file-dropzone">
+                <div class="dropzone-icon">👗</div>
+                <div class="dropzone-label">Click or drag & drop your outfit photo here</div>
+                <div class="dropzone-hint">Supports JPEG, PNG, WebP up to 5MB. Gemini analyzes the neckline & tones.</div>
+              </div>
+
+              <div id="imagePreviewContainer" class="image-preview-container" style="display: none;">
+                <img id="imagePreview" class="image-preview" alt="Outfit Preview">
+                <button type="button" id="removeImageBtn" class="image-remove-btn" title="Remove photo">✕</button>
+              </div>
+            </div>
+
+            <button type="submit" id="submitPlannerBtn" class="btn btn-primary btn-lg" style="width: 100%;">
+              Curate Jewelry Collection
+            </button>
+          </form>
+        </div>
+
+        <!-- Sidebar Guidance -->
+        <div>
+          <div class="tips-card" style="margin-bottom: 24px;">
+            <h3 class="tips-title">💎 Multimodal Outfit Matching</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+              When you upload a dress or saree picture, Google Gemini examines:
+            </p>
+            <ul class="tips-list">
+              <li><strong>Neckline Geometry:</strong> Chokers for sweetheart necks; pendants for deep V-cuts.</li>
+              <li><strong>Embroidery Tones:</strong> Matches warm zardozi work with antique gold or silver accents.</li>
+              <li><strong>Scale & Proportion:</strong> Balances heavy earrings with lighter neckpieces.</li>
+            </ul>
+          </div>
+
+          <div class="tips-card">
+            <h3 class="tips-title">🛡️ Certification & Authenticity</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Recommendations target verified jewelers (<strong>Tanishq</strong>, <strong>CaratLane</strong>, <strong>GIVA</strong>, <strong>BlueStone</strong>) offering hallmarked metals and certified gemstones.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>PocketSmart AI</strong> — Jewelry Styling</div>
+      <div><span>Powered by Google Gemini 3.8 Flash</span></div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/jewelry-planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Interior Planner — PocketSmart AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/planner.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark">
+        PocketSmart <span class="brand-accent">AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="home-planner.html" class="active">Home Interior</a>
+        <a href="party-planner.html">Party Planner</a>
+        <a href="jewelry-planner.html">Jewelry Styling</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="header-actions" id="headerAuthZone">
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="planner-layout">
+        <!-- Form Side -->
+        <div class="planner-form-card">
+          <div class="planner-intro">
+            <h1 class="planner-title">Home Interior Planner</h1>
+            <p class="planner-subtitle">Distribute your home budget across furniture, lighting, ventilation, and decor.</p>
+          </div>
+
+          <div id="plannerErrorAlert" class="alert alert-error" style="display: none;"></div>
+
+          <form id="homePlannerForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="totalBudget" class="form-label">Total Budget ($)</label>
+                <input type="number" id="totalBudget" class="form-input tabular-nums" placeholder="e.g. 50000" min="500" step="100" required>
+              </div>
+
+              <div class="form-group">
+                <label for="roomType" class="form-label">Room Type</label>
+                <select id="roomType" class="form-select" required>
+                  <option value="Living Room" selected>Living Room</option>
+                  <option value="Master Bedroom">Master Bedroom</option>
+                  <option value="Studio Apartment">Studio Apartment</option>
+                  <option value="Dining & Kitchen">Dining & Kitchen</option>
+                  <option value="Home Office / Study">Home Office / Study</option>
+                  <option value="2BHK Full Apartment">2BHK Full Apartment</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="roomQuantity" class="form-label">Number of Rooms</label>
+                <input type="number" id="roomQuantity" class="form-input tabular-nums" value="1" min="1" max="10" required>
+              </div>
+
+              <div class="form-group">
+                <label for="stylePreference" class="form-label">Design & Decor Style</label>
+                <select id="stylePreference" class="form-select" required>
+                  <option value="Modern Minimalist" selected>Modern Minimalist</option>
+                  <option value="Scandinavian">Scandinavian</option>
+                  <option value="Contemporary Warm">Contemporary Warm</option>
+                  <option value="Industrial Loft">Industrial Loft</option>
+                  <option value="Boho Chic">Boho Chic</option>
+                  <option value="Traditional Wood Craft">Traditional Wood Craft</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="furnitureRequirements" class="form-label">Furniture Requirements</label>
+              <input type="text" id="furnitureRequirements" class="form-input" placeholder="e.g. L-shaped sofa, coffee table, TV console, bookshelf">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lightingRequirements" class="form-label">Lighting Requirements</label>
+                <input type="text" id="lightingRequirements" class="form-input" placeholder="e.g. Dimmable warm 3000K, floor lamp">
+              </div>
+
+              <div class="form-group">
+                <label for="ceilingFanRequirements" class="form-label">Ceiling Fan & Ventilation</label>
+                <input type="text" id="ceilingFanRequirements" class="form-input" placeholder="e.g. Silent BLDC motor, wooden finish blades">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="diningTableRequirements" class="form-label">Dining Table Requirements (Optional)</label>
+              <input type="text" id="diningTableRequirements" class="form-input" placeholder="e.g. 4-seater compact oakwood table with cushioned chairs">
+            </div>
+
+            <div class="form-group">
+              <label for="otherRequirements" class="form-label">Other Specific Requirements (Rugs, Curtains, Smart Plugs)</label>
+              <textarea id="otherRequirements" class="form-textarea" placeholder="e.g. Neutral textured rug, blackout linen drapes, potted fiddle leaf fig..."></textarea>
+            </div>
+
+            <button type="submit" id="submitPlannerBtn" class="btn btn-primary btn-lg" style="width: 100%;">
+              Generate Smart Recommendations
+            </button>
+          </form>
+        </div>
+
+        <!-- Sidebar Guidance -->
+        <div>
+          <div class="tips-card" style="margin-bottom: 24px;">
+            <h3 class="tips-title">💡 How Budget Distribution Works</h3>
+            <ul class="tips-list">
+              <li><strong>Core Furniture (~50%):</strong> Anchor seating, tables, and primary storage.</li>
+              <li><strong>Layered Lighting (~15%):</strong> Diffused task and ambient illumination to prevent eye fatigue.</li>
+              <li><strong>Ventilation & Fixtures (~15%):</strong> High-efficiency BLDC motors reducing lifetime electricity.</li>
+              <li><strong>Soft Furnishings (~10%):</strong> Curtains, acoustic rugs, and tactile accents.</li>
+              <li><strong>Surplus Buffer (~10%):</strong> Covers delivery, hardware, and installation margins.</li>
+            </ul>
+          </div>
+
+          <div class="tips-card">
+            <h3 class="tips-title">🔍 Retail Platforms Analyzed</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+              Gemini compares catalog norms across <strong>IKEA</strong>, <strong>Amazon Home</strong>, <strong>Pepperfry</strong>, and <strong>Philips Lighting</strong> to deliver realistic price brackets.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>PocketSmart AI</strong> — Home Interior</div>
+      <div><span>Powered by Google Gemini 3.8 Flash</span></div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/home-planner.js"></script>
+</body>
+</html>

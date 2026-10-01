@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendation History — PocketSmart AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark">
+        PocketSmart <span class="brand-accent">AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="home-planner.html">Home Interior</a>
+        <a href="party-planner.html">Party Planner</a>
+        <a href="jewelry-planner.html">Jewelry Styling</a>
+        <a href="history.html" class="active">History</a>
+      </nav>
+      <div class="header-actions" id="headerAuthZone">
+        <button id="logoutBtn" class="btn btn-outline btn-sm">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h1 style="font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em;">Recommendation History</h1>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Review previous plans, re-open suggestions, or delete past sessions.</p>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);" id="historyTotalCount">
+          Loading sessions...
+        </div>
+      </div>
+
+      <div class="recent-section">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Planner</th>
+                <th>Date & Time</th>
+                <th>Total Budget</th>
+                <th>Recommendations</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <tr>
+                <td colspan="5" class="empty-state">Loading history records...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="historyEmptyState" class="empty-state" style="display: none;">
+          <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 16px;">
+            You have no saved recommendation sessions yet.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center;">
+            <a href="home-planner.html" class="btn btn-primary btn-sm">Create Home Plan</a>
+            <a href="party-planner.html" class="btn btn-secondary btn-sm">Create Party Plan</a>
+            <a href="jewelry-planner.html" class="btn btn-secondary btn-sm">Create Jewelry Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>PocketSmart AI</strong> — History</div>
+      <div><span>Private & Isolated User Sessions</span></div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>

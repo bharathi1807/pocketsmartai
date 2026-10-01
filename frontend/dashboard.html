@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — PocketSmart AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <!-- Top Bar Contract -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark">
+        PocketSmart <span class="brand-accent">AI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="home-planner.html">Home Interior</a>
+        <a href="party-planner.html">Party Planner</a>
+        <a href="jewelry-planner.html">Jewelry Styling</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="header-actions" id="headerAuthZone">
+        <button id="logoutBtn" class="btn btn-outline btn-sm">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Greeting Header -->
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-greeting">Hello, <span id="dashboardUserName">User</span></h1>
+          <p class="dashboard-meta">Here is your current budget planning activity and saved recommendations.</p>
+        </div>
+        <div>
+          <a href="home-planner.html" class="btn btn-primary btn-sm">+ New Planning Session</a>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Plans Generated</div>
+          <div class="stat-value tabular-nums" id="statTotalPlans">0</div>
+          <div class="stat-detail">Across all three planner modules</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Budget Analyzed</div>
+          <div class="stat-value tabular-nums" id="statTotalBudget">$0</div>
+          <div class="stat-detail">Optimized allocation sum</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Average Session Budget</div>
+          <div class="stat-value tabular-nums" id="statAvgBudget">$0</div>
+          <div class="stat-detail">Typical budget scale</div>
+        </div>
+      </div>
+
+      <!-- Planners Grid -->
+      <h2 class="section-title">Available Planners</h2>
+      <div class="planners-grid">
+        <div class="planner-card">
+          <div class="planner-card-header">
+            <span class="planner-card-icon">🏠</span>
+            <h3 class="planner-card-title">Home Interior</h3>
+            <p class="planner-card-desc">Furnishing, layered warm lighting, silent BLDC fans, and room decor.</p>
+          </div>
+          <a href="home-planner.html" class="btn btn-secondary">Start Interior Plan →</a>
+        </div>
+
+        <div class="planner-card">
+          <div class="planner-card-header">
+            <span class="planner-card-icon">🎉</span>
+            <h3 class="planner-card-title">Party & Event</h3>
+            <p class="planner-card-desc">Catering, venue rental, thematic floral/balloon backdrops, and sound/DJ gear.</p>
+          </div>
+          <a href="party-planner.html" class="btn btn-secondary">Start Party Plan →</a>
+        </div>
+
+        <div class="planner-card">
+          <div class="planner-card-header">
+            <span class="planner-card-icon">💎</span>
+            <h3 class="planner-card-title">Jewelry Styling</h3>
+            <p class="planner-card-desc">Precious metal neckwear, earrings, and bangles with multimodal dress photo matching.</p>
+          </div>
+          <a href="jewelry-planner.html" class="btn btn-secondary">Start Jewelry Plan →</a>
+        </div>
+
+        <div class="planner-card">
+          <div class="planner-card-header">
+            <span class="planner-card-icon">📜</span>
+            <h3 class="planner-card-title">Recommendation History</h3>
+            <p class="planner-card-desc">Review previous budget allocations, inspect items, and export search queries.</p>
+          </div>
+          <a href="history.html" class="btn btn-secondary">View All History →</a>
+        </div>
+      </div>
+
+      <!-- Recent History Section -->
+      <div class="recent-section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+          <h2 class="section-title" style="margin-bottom: 0;">Recent Recommendations</h2>
+          <a href="history.html" class="btn btn-outline btn-sm">Full History →</a>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Planner</th>
+                <th>Date</th>
+                <th>Budget</th>
+                <th>Items</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="recentTableBody">
+              <tr>
+                <td colspan="5" class="empty-state">Loading recommendations...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>PocketSmart AI</strong> — Dashboard</div>
+      <div><span>Powered by Google Gemini 3.8 Flash</span></div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
